@@ -15,6 +15,10 @@ def process_delivery(current_total, new_value):
     print("Current inventory:", new_total) # displays new_total after user enters valid stock_quantity
     return new_total
 
+def calculate_tax(amount):
+    tax = amount * 0.10
+    return tax
+
 inventory = 0
 failed_entries = 0 
 
