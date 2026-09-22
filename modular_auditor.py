@@ -1,3 +1,15 @@
+def get_valid_input():
+    stock_quantity = input("Enter stock quantity or 'quit': ")
+
+    if not stock_quantity.isdigit():
+        print("Error: You have entered an invalid input.")
+        return None # stops the execution of a function and returns null value
+
+    if stock_quantity == 'quit':
+        return 'quit'
+
+    return int(stock_quantity) # converts string input into an integer
+
 inventory = 0
 failed_entries = 0 
 
