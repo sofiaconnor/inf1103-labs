@@ -1,12 +1,13 @@
 def get_valid_input():
     stock_quantity = input("Enter stock quantity or 'quit': ")
 
-    if not stock_quantity.isdigit():
+    if stock_quantity.lower() == 'quit': # .lower() converts 'QUIT', 'Quit', or 'qUit' to 'quit'
+        return 'quit'
+
+    if not stock_quantity.isdigit(): # if the stock quantity is NOT a digit, returns None, 
+                                     # this also works for negative numbers it check through every character, and the negative sign would make it invalid
         print("Error: You have entered an invalid input.")
         return None # stops the execution of a function and returns null value
-
-    if stock_quantity == 'quit':
-        return 'quit'
 
     return int(stock_quantity) # converts string input into an integer
 
@@ -20,34 +21,35 @@ def calculate_tax(amount):
     return tax
 
 def generate_report(total_units, failed_attempts):
-    print("Total Units:", total_units)
+    print("Total Units Processed:", total_units)
     print("Number of Failed/Rejected Entries:", failed_attempts)
 
-inventory = 0
-failed_entries = 0 
+def main():
+    inventory = 0
+    failed_entries = 0 
 
-while True:
-    stock_quantity = input("Enter stock quantity or 'quit': ")
+    while True:
+        stock_quantity = get_valid_input()
 
-    if stock_quantity == 'quit':
-        break # exits the While loop and proceeds on to the final print statements
+        if stock_quantity == 'quit':
+            break # exits the While loop and proceeds on to the final print statements
 
-    if not stock_quantity.isdigit():
-        print("Error: You have entered an invalid input.")
-        failed_entries += 1
-        continue
+        if stock_quantity is None:
+            failed_entries += 1
+            continue
 
-    stock_quantity = int(stock_quantity)
+        inventory = process_delivery(inventory, stock_quantity) # the arguments here will ovbe passed into the parameters (current_total, new_value)
 
-    inventory += stock_quantity
-    print("Current inventory:", inventory)
+        tax = calculate_tax(stock_quantity)
+        print("Tax for this delivery:", tax)  
 
-    if inventory > 500:
-        print("ALERT! Inventory exceeds limit (500 units)")
-        break
+        if inventory > 500:
+            print("ALERT! Inventory exceeds limit (500 units)")
+            break
 
-print("Total Units Processed:", inventory)
-print("Number of Failed/Rejected Entries:", failed_entries)
+    generate_report(inventory, failed_entries)
 
+if __name__ == "__main__": # launches main() if someone executes this script directly in the terminal
+    main()
 
 
