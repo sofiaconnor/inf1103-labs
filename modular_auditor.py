@@ -10,6 +10,11 @@ def get_valid_input():
 
     return int(stock_quantity) # converts string input into an integer
 
+def process_delivery(current_total, new_value):
+    new_total = current_total + new_value
+    print("Current inventory:", new_total) # displays new_total after user enters valid stock_quantity
+    return new_total
+
 inventory = 0
 failed_entries = 0 
 
