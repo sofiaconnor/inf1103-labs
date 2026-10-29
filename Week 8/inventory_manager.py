@@ -1,4 +1,6 @@
 import json
+from product import Product
+from inventory import Inventory
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -7,14 +9,28 @@ import json
 # ]
 
 def load_inventory():
+    inventory = Inventory()
+
     try:
         with open("inventory.json", "r") as file:
-            products = json.load(file) # json.load() loads the json structure into python
+            products = json.load(file)
+
+            for product in products:
+                new_product = Product(
+                    product["id"],
+                    product["name"],
+                    product["price"],
+                    product["stock"]
+                )
+                inventory.add_product(new_product)
+
             print("inventory.json found.")
             print("Inventory loaded successfully.\n")
-            return products
+
     except FileNotFoundError:
-        return []
+        print("inventory.json not found. Starting with an empty inventory.\n")
+
+    return inventory
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
