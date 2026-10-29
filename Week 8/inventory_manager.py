@@ -87,7 +87,7 @@ def save_inventory():
     products = inventory.get_all_products()
 
     with open("inventory.json", "w") as file:
-        json.dump(products, file)
+        json.dump(products, file, indent=4) # indent=4 formats the json file
 
     print("Inventory saved successfully to inventory.json.")
 
