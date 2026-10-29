@@ -88,20 +88,6 @@ def search_product():
     else:
         print("\nProduct not found.")
 
-def display_all():
-    print("Current Inventory")
-    print("--------------------------")
-
-    for product in inventory:
-        print("ID:",product["id"],
-              "| Name:",product["name"],
-              "| Price: $" + format(product["price"], ".2f"),
-              "| Stock:",product["stock"])
-
-    print("--------------------------")
-
-# display_all()
-
 def save_inventory():
     with open("inventory.json", "w") as file:
         json.dump(inventory, file) # from Python -> to JSON
@@ -128,7 +114,7 @@ def main():
         print()
 
         if option == "1":
-            display_all()
+            inventory.display_all()
         elif option == "2":
             add_product()
         elif option == "3":
