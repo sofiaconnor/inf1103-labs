@@ -51,9 +51,6 @@ def add_product():
     inventory.add_product(product)
     print("\nProduct added successfully!")
 
-# add_product()
-# print(inventory)
-
 def update_stock():
     print("Update Stock")
     product_ID = input("Enter Product ID: ")
@@ -72,8 +69,6 @@ def update_stock():
     else:
         print("Product not found.")
 
-# update_stock()
-
 def search_product():
     print("Search Product")
     product_ID = input("Enter Product ID: ")
@@ -89,15 +84,12 @@ def search_product():
         print("\nProduct not found.")
 
 def save_inventory():
+    products = inventory.get_all_products()
+
     with open("inventory.json", "w") as file:
-        json.dump(inventory, file) # from Python -> to JSON
+        json.dump(products, file)
 
     print("Inventory saved successfully to inventory.json.")
-
-# update_stock()
-
-# print("Saving Inventory...")
-# save_inventory()
 
 def main():
     print("-----------MENU-----------")
