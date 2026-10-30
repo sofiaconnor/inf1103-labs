@@ -1,6 +1,4 @@
 import json
-from product import Product
-from inventory import Inventory
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -9,28 +7,14 @@ from inventory import Inventory
 # ]
 
 def load_inventory():
-    inventory = Inventory()
-
     try:
         with open("inventory.json", "r") as file:
-            products = json.load(file)
-
-            for product in products:
-                new_product = Product(
-                    product["id"],
-                    product["name"],
-                    product["price"],
-                    product["stock"]
-                )
-                inventory.add_product(new_product)
-
+            products = json.load(file) # json.load() loads the json structure into python
             print("inventory.json found.")
             print("Inventory loaded successfully.\n")
-
+            return products
     except FileNotFoundError:
-        print("inventory.json not found. Starting with an empty inventory.\n")
-
-    return inventory
+        return []
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
@@ -46,50 +30,80 @@ def add_product():
     price = float(input("Price: "))
     stock_quantity = int(input("Stock Quantity: "))
 
-    product = Product(product_ID, product_name, price, stock_quantity)
+    product = {
+        "id": product_ID,
+        "name": product_name,
+        "price": price,
+        "stock": stock_quantity
+    }
 
-    inventory.add_product(product)
+    inventory.append(product)
     print("\nProduct added successfully!")
+
+# add_product()
+# print(inventory)
 
 def update_stock():
     print("Update Stock")
     product_ID = input("Enter Product ID: ")
     print()
 
-    product = inventory.search_product(product_ID)
-
-    if product is not None:
-        print("Product Found:")
-        product.display_information()
-
-        new_stock = int(input("New Stock Quantity: "))
-        product.update_stock(new_stock)
-
-        print("\nStock updated successfully!")
+    for product in inventory:
+        if product["id"] == product_ID:
+            print("Product Found:")
+            print("Name:", product["name"] )
+            print("Current Stock:", product["stock"])
+            
+            new_stock = int(input("New Stock Quantity: "))
+            product["stock"] = new_stock
+            print("\nStock updated successfully!")
+            break
     else:
         print("Product not found.")
+
+# update_stock()
 
 def search_product():
     print("Search Product")
     product_ID = input("Enter Product ID: ")
 
-    product = inventory.search_product(product_ID)
-
-    if product is not None:
-        print("\nProduct Found")
-        print("--------------------------")
-        product.display_information()
-        print("--------------------------")
+    for product in inventory:
+        if product["id"] == product_ID:
+            print("\nProduct Found")
+            print("--------------------------")
+            print("ID: ", product["id"] )
+            print("Name: ", product["name"])
+            print("Price: $" + format(product["price"], ".2f"))
+            print("Stock: ", product["stock"])
+            print("--------------------------")
+            break
     else:
         print("\nProduct not found.")
 
-def save_inventory():
-    products = inventory.get_all_products()
+def display_all():
+    print("Current Inventory")
+    print("--------------------------")
 
+    for product in inventory:
+        print("ID:",product["id"],
+              "| Name:",product["name"],
+              "| Price: $" + format(product["price"], ".2f"),
+              "| Stock:",product["stock"])
+
+    print("--------------------------")
+
+# display_all()
+
+def save_inventory():
     with open("inventory.json", "w") as file:
-        json.dump(products, file, indent=4) # indent=4 formats the json file
+        json.dump(inventory, file) # from Python -> to JSON
 
     print("Inventory saved successfully to inventory.json.")
+
+# update_stock()
+
+# print("Saving Inventory...")
+# save_inventory()
 
 def main():
     print("-----------MENU-----------")
@@ -106,7 +120,7 @@ def main():
         print()
 
         if option == "1":
-            inventory.display_all()
+            display_all()
         elif option == "2":
             add_product()
         elif option == "3":
