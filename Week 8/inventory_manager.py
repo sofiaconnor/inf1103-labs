@@ -91,8 +91,10 @@ def display_all():
     inventory.display_all()
 
 def save_inventory():
+    products = inventory.get_all_products()
+
     with open("inventory.json", "w") as file:
-        json.dump(inventory, file, indent = 4) # from Python -> to JSON
+        json.dump(products, file, indent = 4) # from Python -> to JSON
 
     print("Inventory saved successfully to inventory.json.")
 
