@@ -77,16 +77,13 @@ def search_product():
     print("Search Product")
     product_ID = input("Enter Product ID: ")
 
-    for product in inventory:
-        if product["id"] == product_ID:
-            print("\nProduct Found")
-            print("--------------------------")
-            print("ID: ", product["id"] )
-            print("Name: ", product["name"])
-            print("Price: $" + format(product["price"], ".2f"))
-            print("Stock: ", product["stock"])
-            print("--------------------------")
-            break
+    product = inventory.search_product(product_ID)
+
+    if product is not None:
+        print("\nProduct Found")
+        print("--------------------------")
+        product.display_information()
+        print("--------------------------")
     else:
         print("\nProduct not found.")
 
