@@ -21,11 +21,3 @@ class Inventory:
         for product in self.__products:
             product.display_information()
             print("--------------------------")
-
-    def get_all_products(self):
-        products = []
-
-        for product in self.__products:
-            products.append(product.to_dict())
-
-        return products
