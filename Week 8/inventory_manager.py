@@ -111,7 +111,7 @@ def main():
         print()
 
         if option == "1":
-            display_all()
+            inventory.display_all()
         elif option == "2":
             add_product()
         elif option == "3":
