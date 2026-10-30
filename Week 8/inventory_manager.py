@@ -46,14 +46,14 @@ def add_product():
     price = float(input("Price: "))
     stock_quantity = int(input("Stock Quantity: "))
 
-    product = {
-        "id": product_ID,
-        "name": product_name,
-        "price": price,
-        "stock": stock_quantity
-    }
+    product = Product(
+        product_ID,
+        product_name,
+        price,
+        stock_quantity
+    )
 
-    inventory.append(product)
+    inventory.add_product(product)
     print("\nProduct added successfully!")
 
 def update_stock():
