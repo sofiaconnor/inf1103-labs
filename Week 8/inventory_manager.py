@@ -21,7 +21,6 @@ print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
 
 inventory = load_inventory()
-# print(inventory)
 
 def add_product():
     print("Add New Product")
@@ -40,9 +39,6 @@ def add_product():
     inventory.append(product)
     print("\nProduct added successfully!")
 
-# add_product()
-# print(inventory)
-
 def update_stock():
     print("Update Stock")
     product_ID = input("Enter Product ID: ")
@@ -60,8 +56,6 @@ def update_stock():
             break
     else:
         print("Product not found.")
-
-# update_stock()
 
 def search_product():
     print("Search Product")
@@ -92,18 +86,11 @@ def display_all():
 
     print("--------------------------")
 
-# display_all()
-
 def save_inventory():
     with open("inventory.json", "w") as file:
         json.dump(inventory, file, indent = 4) # from Python -> to JSON
 
     print("Inventory saved successfully to inventory.json.")
-
-# update_stock()
-
-# print("Saving Inventory...")
-# save_inventory()
 
 def main():
     print("-----------MENU-----------")
@@ -137,8 +124,9 @@ def main():
             print("Program terminated.")
             break
         else:
-            print("Invalid option. Please try again: ") # since it is a loop, there is no need to put "Enter option again: "
-                                                        # because the loop will shortly print option = input("Enter option: ")
+            print("Invalid option. Please try again: ") 
+            # Since it is a loop, there is no need to put "Enter option again: "
+            # This is because the loop will shortly print option = input("Enter option: ")
 
 if __name__ == '__main__':
     main()
