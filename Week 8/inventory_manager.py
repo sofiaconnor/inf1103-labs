@@ -61,16 +61,15 @@ def update_stock():
     product_ID = input("Enter Product ID: ")
     print()
 
-    for product in inventory:
-        if product["id"] == product_ID:
-            print("Product Found:")
-            print("Name:", product["name"] )
-            print("Current Stock:", product["stock"])
-            
-            new_stock = int(input("New Stock Quantity: "))
-            product["stock"] = new_stock
-            print("\nStock updated successfully!")
-            break
+    product = inventory.search_product(product_ID)
+
+    if product is not None:
+        print("Product Found:")
+        product.display_information()
+
+        new_stock = int(input("New Stock Quantity: "))
+        product.update_stock(new_stock)
+        print("\nStock updated successfully!")
     else:
         print("Product not found.")
 
