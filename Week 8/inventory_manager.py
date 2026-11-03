@@ -67,7 +67,7 @@ def update_stock():
         print("Product Found:")
         product.display_information()
 
-        new_stock = int(input("New Stock Quantity: "))
+        new_stock = int(input("\nNew Stock Quantity: "))
         product.update_stock(new_stock)
         print("\nStock updated successfully!")
     else:
@@ -130,7 +130,7 @@ def main():
             print("Program terminated.")
             break
         else:
-            print("Invalid option. Please try again: ") 
+            print("Product not found: ") 
             # Since it is a loop, there is no need to put "Enter option again: "
             # This is because the loop will shortly print option = input("Enter option: ")
 

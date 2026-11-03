@@ -16,7 +16,7 @@ class Product:
         print("ID:", self.__product_id)
         print("Name:", self.__name)
         print("Price: $" + format(self.__price, ".2f"))
-        print("Stock:", self.__stock)
+        print("Current Stock:", self.__stock)
 
     def to_dict(self):
         return {
