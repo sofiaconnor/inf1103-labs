@@ -1,6 +1,7 @@
 import json
 from product import Product
 from inventory import Inventory
+from physical_product import PhysicalProduct
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -133,6 +134,9 @@ def main():
             print("Product not found: ") 
             # Since it is a loop, there is no need to put "Enter option again: "
             # This is because the loop will shortly print option = input("Enter option: ")
+
+laptop = PhysicalProduct("P001", "Laptop", 1200, 15, 2.5)
+laptop.display_information()
 
 if __name__ == '__main__':
     main()

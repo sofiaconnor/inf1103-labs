@@ -9,4 +9,4 @@ class PhysicalProduct(Product): # Product is the parent, PhysicalProduct is the 
 
     def display_information(self):
         super().display_information()
-        print("Weight: ", self.__weight, "kg") # prints the previously stored value for weight
+        print("Weight:", self.__weight, "kg") # prints the previously stored value for weight
