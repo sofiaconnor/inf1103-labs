@@ -2,6 +2,7 @@ import json
 from product import Product
 from inventory import Inventory
 from physical_product import PhysicalProduct
+from digital_product import DigitalProduct
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -137,6 +138,9 @@ def main():
 
 laptop = PhysicalProduct("P001", "Laptop", 1200, 15, 2.5)
 laptop.display_information()
+
+software = DigitalProduct("P002", "Antivirus Software", 49.99, 100, 250)
+software.display_information()
 
 if __name__ == '__main__':
     main()
