@@ -21,3 +21,9 @@ class DigitalProduct(Product):
 
     def get_fulfilment_info(self):
         return "This digital product is delivered digitally"
+
+    def to_dict(self):
+        product = super().to_dict() # retrieves the existing product details (id, name, price, stock)
+        product["type"] = "digital"
+        product["download_size"] = self.__download_size
+        return product
