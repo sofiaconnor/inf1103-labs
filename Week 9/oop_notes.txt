@@ -40,3 +40,15 @@ ALLOWED:
     # CanBeShipped = Interface-style ABC
 
 Note: Python technically considers both multiple inheritance, but the lab allows ONE regular parent class + multiple interfaces.
+
+Section 5: Attributes vs Calculated Values (JSON Saving)
+=========================================================
+
+- Attributes = Values stored in an object (e.g. `self.__weight`).
+- Calculated Values = Values computed using existing attributes (e.g. `self.__weight * 5`).
+
+JSON Saving:
+- Save attributes needed to reconstruct the object.
+- No need to save calculated values if they can be recalculated.
+
+Example: Save `weight`, NOT `shipping_cost`, since shipping cost can be recalculated from weight.
