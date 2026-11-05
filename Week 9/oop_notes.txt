@@ -1,0 +1,10 @@
+Section 3.1: Abstract Classes
+=============================
+
+Instantiate = Create an object from a class.
+
+We do not want to instantiate the parent Product class because we do not know enough information about the product 
+(e.g. whether it is physical or digital).
+
+Instead, we only want to instantiate the child classes (PhysicalProduct and DigitalProduct). 
+Therefore, the parent Product class must be made abstract (converted into an abstract class) to prevent direct instantiation of the parent Product class.
