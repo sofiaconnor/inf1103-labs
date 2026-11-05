@@ -8,5 +8,14 @@ class PhysicalProduct(Product): # Product is the parent, PhysicalProduct is the 
         self.__weight = weight # double underscores stores weight as a private attribute
 
     def display_information(self):
+        # Section 1.2: Display product information
+        # product = self.to_dict()
+        # print("ID:", product["id"])
+        # print("Name:", product["name"])
+        # print("Price: $" + format(product["price"], ".2f"))
+        # print("Current Stock:", product["stock"])
+        # print("Weight:", self.__weight, "kg")
+
+        # Section 2.1: Method overriding using super()
         super().display_information()
         print("Weight:", self.__weight, "kg") # prints the previously stored value for weight
