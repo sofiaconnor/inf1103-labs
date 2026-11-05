@@ -39,7 +39,7 @@ print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
 
-inventory = Inventory() # temporarily created an empty inventory for Section 3.2 testing
+inventory = Inventory() # temporarily created an empty inventory for Section 3.3 testing
 
 def add_product():
     print("Add New Product")
@@ -144,6 +144,8 @@ software = DigitalProduct("P002", "Antivirus Software", 49.99, 100, 250)
 software.display_information()
 print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
 
+# Section 3.3: Test direct instantiation of the Product class while its abstract method remains unimplemented
+# product = Product("P003", "Random Product", 20, 10) # raises a TypeError git add inventory_manager.pybecause Product is abstract
+
 if __name__ == '__main__':
-    # main() # temporarily disabled for Section 3.2 testing
-    pass
+    main() # temporarily disabled for Section 3.2 testing
