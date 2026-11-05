@@ -39,7 +39,7 @@ print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
 
-inventory = Inventory() # temporarily created an empty inventory for Section 4.2 testing
+inventory = load_inventory()
 
 def add_product():
     print("Add New Product")
