@@ -21,5 +21,5 @@ class PhysicalProduct(Product): # Product is the parent, PhysicalProduct is the 
         print("Weight:", self.__weight, "kg") # prints the previously stored value for weight
 
     def get_fulfilment_info(self):
-        return "This physical product requires shipping" # cannot use return print() because print() displays the message but returns None
+        return "This physical product requires physical shipping" # cannot use return print() because print() displays the message but returns None
                                                          # this way, the method returns the actual string 

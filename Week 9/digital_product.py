@@ -18,3 +18,6 @@ class DigitalProduct(Product):
         # Section 2.1: Method overriding using super()
         super().display_information()
         print("Donwload size:", self.__download_size, "MB")
+
+    def get_fulfilment_info(self):
+        return "This digital product is delivered digitally"
