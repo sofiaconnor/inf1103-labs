@@ -1,4 +1,7 @@
-class Product:
+from abc import ABC, abstractmethod
+# abstractmethod is a decorator in Python that allows us to specify which methods the child classes MUST implement
+
+class Product(ABC):
 
     def __init__(self, product_id, name, price, stock):
         self.__product_id = product_id
@@ -25,3 +28,7 @@ class Product:
             "price": self.__price,
             "stock": self.__stock
         }
+
+    @abstractmethod # the @ tells Python to apply the abstractmethod decorator here
+    def get_fulfilment_info(self):
+        pass
