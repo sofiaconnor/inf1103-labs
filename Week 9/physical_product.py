@@ -1,6 +1,9 @@
 from product import Product
+from can_be_shipped import CanBeShipped
 
-class PhysicalProduct(Product): # Product is the parent, PhysicalProduct is the child
+class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalProduct is the child
+                                              # added CanBeShipped after creating the CanBeShipped interface,
+                                              # which PhysicalProduct will implement
 
     def __init__(self, product_id, name, price, stock, weight): # weight is our new attribute!
         super().__init__(product_id, name, price, stock) # super() points back to the parent class,
@@ -22,4 +25,7 @@ class PhysicalProduct(Product): # Product is the parent, PhysicalProduct is the 
 
     def get_fulfilment_info(self):
         return "This physical product requires physical shipping" # cannot use return print() because print() displays the message but returns None
-                                                         # this way, the method returns the actual string 
+                                                         # this way, the method returns the actual string
+
+    def calculate_shipping_cost(self):
+        return self.__weight * 5 # $5 per kg, returns the calculated shipping cost

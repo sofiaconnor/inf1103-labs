@@ -39,7 +39,7 @@ print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
 
-inventory = load_inventory()
+inventory = Inventory() # temporarily created an empty inventory for Section 4.2 testing
 
 def add_product():
     print("Add New Product")
@@ -136,10 +136,14 @@ def main():
             # Since it is a loop, there is no need to put "Enter option again: "
             # This is because the loop will shortly print option = input("Enter option: ")
 
+
+# PhysicalProduct testing
 laptop = PhysicalProduct("P001", "Laptop", 1200, 15, 2.5)
 laptop.display_information()
 print(laptop.get_fulfilment_info()) # Section 3.2: Test physical product fulfilment
+print("Shipping Cost: $" + format(laptop.calculate_shipping_cost(), ".2f"))
 
+# DigitalProduct testing
 software = DigitalProduct("P002", "Antivirus Software", 49.99, 100, 250)
 software.display_information()
 print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
