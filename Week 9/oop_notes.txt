@@ -21,3 +21,22 @@ Section 4.1: CanBeShipped Interface
 =============================
 get_fulfilment_info() → The child classes return a message explaining how the product is delivered.
 calculate_shipping_cost() → The child class (PhysicalProduct) returns a calculated shipping cost based on its weight, not just a message.
+
+Section 4.2: Single Class and Multiple Inheritance
+==================================================
+
+Single Class Inheritance = Child class inherits from ONE regular parent class.
+Multiple Class Inheritance = Child class inherits from TWO or MORE regular parent classes (AVOID).
+
+AVOID:
+    class PhysicalProduct(Product, ShippingProduct):
+        pass
+    # Both are regular parent classes.
+
+ALLOWED:
+    class PhysicalProduct(Product, CanBeShipped):
+        pass
+    # Product = Regular parent class
+    # CanBeShipped = Interface-style ABC
+
+Note: Python technically considers both multiple inheritance, but the lab allows ONE regular parent class + multiple interfaces.
