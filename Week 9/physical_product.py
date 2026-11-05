@@ -2,8 +2,8 @@ from product import Product
 from can_be_shipped import CanBeShipped
 
 class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalProduct is the child
-                                              # added CanBeShipped after creating the CanBeShipped interface,
-                                              # which PhysicalProduct will implement
+                                              # inherits from one parent class (Product)
+                                              # implements the CanBeShipped interface-style ABC
 
     def __init__(self, product_id, name, price, stock, weight): # weight is our new attribute!
         super().__init__(product_id, name, price, stock) # super() points back to the parent class,
@@ -29,3 +29,9 @@ class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalP
 
     def calculate_shipping_cost(self):
         return self.__weight * 5 # $5 per kg, returns the calculated shipping cost
+
+    def to_dict(self):
+        product = super().to_dict() # retrieves the existing product details (id, name, price, stock)
+        product["type"] = "physical"
+        product["weight"] = self.__weight
+        return product
