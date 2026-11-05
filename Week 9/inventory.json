@@ -30,5 +30,13 @@
         "stock": 100,
         "type": "digital",
         "download_size": 250
+    },
+    {
+        "id": "P005",
+        "name": "IDE",
+        "price": 15.0,
+        "stock": 2,
+        "type": "digital",
+        "download_size": 300.0
     }
 ]

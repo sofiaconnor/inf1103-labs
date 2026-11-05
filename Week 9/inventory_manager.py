@@ -57,18 +57,38 @@ inventory = load_inventory()
 
 def add_product():
     print("Add New Product")
+    print("1. Physical Product")
+    print("2. Digital Product")
+    product_type = input("Select Product Type (1/2): ")
+    
     product_ID = input("Product ID: ")
     product_name = input("Product Name: ")
     price = float(input("Price: "))
     stock_quantity = int(input("Stock Quantity: "))
 
+    if product_type == "1":
+        weight = float(input("Weight (kg): "))
+        product = PhysicalProduct(
+            product_ID,
+            product_name,
+            price,
+            stock_quantity,
+            weight
+        )
 
-    product = Product(
-        product_ID,
-        product_name,
-        price,
-        stock_quantity
-    )
+    elif product_type == "2":
+        download_size = float(input("Download size (MB): "))
+        product = DigitalProduct(
+            product_ID,
+            product_name,
+            price,
+            stock_quantity,
+            download_size
+        )
+
+    else:
+        print("Invalid product type.")
+        return
 
     inventory.add_product(product)
     print("\nProduct added successfully!")
@@ -153,15 +173,15 @@ def main():
 
 
 # PhysicalProduct testing
-laptop = PhysicalProduct("P001", "Laptop", 1200, 15, 2.5)
-laptop.display_information()
-print(laptop.get_fulfilment_info()) # Section 3.2: Test physical product fulfilment
-print("Shipping Cost: $" + format(laptop.calculate_shipping_cost(), ".2f"))
+# laptop = PhysicalProduct("P001", "Laptop", 1200, 15, 2.5)
+# laptop.display_information()
+# print(laptop.get_fulfilment_info()) # Section 3.2: Test physical product fulfilment
+# print("Shipping Cost: $" + format(laptop.calculate_shipping_cost(), ".2f"))
 
 # DigitalProduct testing
-software = DigitalProduct("P004", "Antivirus Software", 49.99, 100, 250)
-software.display_information()
-print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
+# software = DigitalProduct("P004", "Antivirus Software", 49.99, 100, 250)
+# software.display_information()
+# print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
 
 # Section 3.3: Test direct instantiation of the Product class while its abstract method remains unimplemented
 # product = Product("P003", "Random Product", 20, 10) # raises a TypeError git add inventory_manager.pybecause Product is abstract
