@@ -8,3 +8,11 @@ We do not want to instantiate the parent Product class because we do not know en
 
 Instead, we only want to instantiate the child classes (PhysicalProduct and DigitalProduct). 
 Therefore, the parent Product class must be made abstract (converted into an abstract class) to prevent direct instantiation of the parent Product class.
+
+=============================
+
+super() — used for Calling Parent Methods
+
+super() is used to call the parent version of a method.
+However, if the parent version of that method only contains `pass` (no implementation), we do not need to call it using `super()` because there is no behaviour to reuse.
+Instead, we can directly implement the method in the child class (method overriding).
