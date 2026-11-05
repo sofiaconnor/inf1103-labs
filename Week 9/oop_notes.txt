@@ -16,3 +16,8 @@ super() — used for Calling Parent Methods
 super() is used to call the parent version of a method.
 However, if the parent version of that method only contains `pass` (no implementation), we do not need to call it using `super()` because there is no behaviour to reuse.
 Instead, we can directly implement the method in the child class (method overriding).
+
+=============================
+
+get_fulfilment_info() → The child classes return a message explaining how the product is delivered.
+calculate_shipping_cost() → The child class (PhysicalProduct) returns a calculated shipping cost based on its weight, not just a message.
