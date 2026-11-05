@@ -18,12 +18,26 @@ def load_inventory():
             products = json.load(file) # json.load() loads the json structure into python
 
             for product in products:
-                new_product = Product(
-                    product["id"],
-                    product["name"],
-                    product["price"],
-                    product["stock"]
-                )
+                if product["type"] == "physical":
+                    new_product = PhysicalProduct(
+                        product["id"],
+                        product["name"],
+                        product["price"],
+                        product["stock"],
+                        product["weight"]
+                    )
+
+                elif product["type"] == "digital":
+                    new_product = DigitalProduct(
+                        product["id"],
+                        product["name"],
+                        product["price"],
+                        product["stock"],
+                        product["download_size"]
+                    )
+
+                else:
+                    continue
 
                 inventory.add_product(new_product)
 
@@ -47,6 +61,7 @@ def add_product():
     product_name = input("Product Name: ")
     price = float(input("Price: "))
     stock_quantity = int(input("Stock Quantity: "))
+
 
     product = Product(
         product_ID,
@@ -144,7 +159,7 @@ print(laptop.get_fulfilment_info()) # Section 3.2: Test physical product fulfilm
 print("Shipping Cost: $" + format(laptop.calculate_shipping_cost(), ".2f"))
 
 # DigitalProduct testing
-software = DigitalProduct("P002", "Antivirus Software", 49.99, 100, 250)
+software = DigitalProduct("P004", "Antivirus Software", 49.99, 100, 250)
 software.display_information()
 print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
 
@@ -152,4 +167,4 @@ print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfil
 # product = Product("P003", "Random Product", 20, 10) # raises a TypeError git add inventory_manager.pybecause Product is abstract
 
 if __name__ == '__main__':
-    main() # temporarily disabled for Section 3.2 testing
+    main()
