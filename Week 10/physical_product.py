@@ -13,7 +13,7 @@ class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalP
                                                                    # need to specify which attributes are needed for the child class
                                                                    # the child then passes the supplier to its parent (Product), which stores it in self.__supplier
 
-        self.__weight = weight # double underscores stores weight as a private attribute
+        self.__weight: float = weight # double underscores stores weight as a private attribute
 
     def display_information(self):
         # Section 1.2: Display product information
