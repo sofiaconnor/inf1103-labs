@@ -19,6 +19,9 @@ class Product(ABC):
     def get_product_id(self):
         return self.__product_id
 
+    def get_price(self) -> float:
+        return self.__price # returns the price stored in the Product object
+
     def update_stock(self, quantity):
         self.__stock = quantity
 
