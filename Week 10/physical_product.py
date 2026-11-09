@@ -15,7 +15,7 @@ class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalP
 
         self.__weight: float = weight # double underscores stores weight as a private attribute
 
-    def display_information(self):
+    def display_information(self) -> None:
         # Section 1.2: Display product information
         # product = self.to_dict()
         # print("ID:", product["id"])
@@ -28,14 +28,14 @@ class PhysicalProduct(Product, CanBeShipped): # Product is the parent, PhysicalP
         super().display_information()
         print("Weight:", self.__weight, "kg") # prints the previously stored value for weight
 
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str:
         return "This physical product requires physical shipping" # cannot use return print() because print() displays the message but returns None
                                                          # this way, the method returns the actual string
 
-    def calculate_shipping_cost(self):
+    def calculate_shipping_cost(self) -> float:
         return self.__weight * 5 # $5 per kg, returns the calculated shipping cost
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         product = super().to_dict() # retrieves the existing product details (id, name, price, stock)
         product["type"] = "physical"
         product["weight"] = self.__weight

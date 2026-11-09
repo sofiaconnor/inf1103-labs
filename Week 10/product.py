@@ -16,16 +16,16 @@ class Product(ABC):
         self.__supplier: Supplier = supplier # this stores a reference to an existing Supplier object (association),
                                              # instead of creating a new one
 
-    def get_product_id(self):
+    def get_product_id(self) -> str:
         return self.__product_id
 
     def get_price(self) -> float:
         return self.__price # returns the price stored in the Product object
 
-    def update_stock(self, quantity):
+    def update_stock(self, quantity) -> None:
         self.__stock = quantity
 
-    def display_information(self):
+    def display_information(self) -> None:
         print("ID:", self.__product_id)
         print("Name:", self.__name)
         print("Price: $" + format(self.__price, ".2f"))
@@ -34,7 +34,7 @@ class Product(ABC):
     def display_supplier_information(self) -> None:
         self.__supplier.display_information()
 
-    def to_dict(self):
+    def to_dict(self) -> str:
         return {
             "id": self.__product_id,
             "name": self.__name,
@@ -43,5 +43,5 @@ class Product(ABC):
         }
 
     @abstractmethod # the @ tells Python to apply the abstractmethod decorator here
-    def get_fulfilment_info(self):
+    def get_fulfilment_info(self) -> str: # returns a fulfilment message
         pass

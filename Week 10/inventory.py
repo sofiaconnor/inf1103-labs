@@ -23,7 +23,7 @@ class Inventory:
     def find_product(self, product_id: str) -> Product | None:
         return self.search_product(product_id)
 
-    def display_all(self):
+    def display_all(self) -> None:
         print("Current Inventory")
         print("--------------------------")
 
@@ -31,7 +31,7 @@ class Inventory:
             product.display_information()
             print("--------------------------")
 
-    def get_all_products(self):
+    def get_all_products(self) -> list[dict]: # list[dict] because this method returns a list containing dictionaries
         products = []
 
         for product in self.__products:

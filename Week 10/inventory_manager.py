@@ -3,6 +3,7 @@ from product import Product
 from inventory import Inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
+from supplier import Supplier
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -10,8 +11,9 @@ from digital_product import DigitalProduct
 #     {"id": "P003", "name": "Keyboard", "price": 45.00, "stock": 25},
 # ]
 
-def load_inventory():
+def load_inventory() -> Inventory:
     inventory = Inventory()
+    default_supplier = Supplier("S000", "Unknown Supplier", "unknown@example.com")
 
     try:
         with open("inventory.json", "r") as file:
@@ -24,7 +26,8 @@ def load_inventory():
                         product["name"],
                         product["price"],
                         product["stock"],
-                        product["weight"]
+                        product["weight"],
+                        default_supplier
                     )
 
                 elif product["type"] == "digital":
@@ -33,7 +36,8 @@ def load_inventory():
                         product["name"],
                         product["price"],
                         product["stock"],
-                        product["download_size"]
+                        product["download_size"],
+                        default_supplier
                     )
 
                 else:
@@ -55,7 +59,9 @@ print("========================================\n")
 
 inventory = load_inventory()
 
-def add_product():
+def add_product() -> None:
+    default_supplier = Supplier("S000", "Unknown Supplier", "unknown@example.com")
+
     print("Add New Product")
     print("1. Physical Product")
     print("2. Digital Product")
@@ -73,7 +79,8 @@ def add_product():
             product_name,
             price,
             stock_quantity,
-            weight
+            weight,
+            default_supplier
         )
 
     elif product_type == "2":
@@ -83,7 +90,8 @@ def add_product():
             product_name,
             price,
             stock_quantity,
-            download_size
+            download_size,
+            default_supplier
         )
 
     else:
@@ -93,7 +101,7 @@ def add_product():
     inventory.add_product(product)
     print("\nProduct added successfully!")
 
-def update_stock():
+def update_stock() -> None:
     print("Update Stock")
     product_ID = input("Enter Product ID: ")
     print()
@@ -110,7 +118,7 @@ def update_stock():
     else:
         print("Product not found.")
 
-def search_product():
+def search_product() -> None:
     print("Search Product")
     product_ID = input("Enter Product ID: ")
 
@@ -124,10 +132,10 @@ def search_product():
     else:
         print("\nProduct not found.")
 
-def display_all():
+def display_all() -> None:
     inventory.display_all()
 
-def save_inventory():
+def save_inventory() -> None:
     products = inventory.get_all_products()
 
     with open("inventory.json", "w") as file:
@@ -135,7 +143,7 @@ def save_inventory():
 
     print("Inventory saved successfully to inventory.json.")
 
-def main():
+def main() -> None:
     print("-----------MENU-----------")
     print("1. Display All Products")
     print("2. Add Product")
@@ -184,7 +192,7 @@ def main():
 # print(software.get_fulfilment_info()) # Section 3.2: Test digital product fulfilment
 
 # Section 3.3: Test direct instantiation of the Product class while its abstract method remains unimplemented
-# product = Product("P003", "Random Product", 20, 10) # raises a TypeError git add inventory_manager.pybecause Product is abstract
+# product = Product("P003", "Random Product", 20, 10) # raises a TypeError because Product is abstract
 
 if __name__ == '__main__':
     main()
