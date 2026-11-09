@@ -31,10 +31,13 @@ class Inventory:
             product.display_information()
             print("--------------------------")
 
-    def get_all_products(self) -> list[dict]: # list[dict] because this method returns a list containing dictionaries
-        products = []
+    def get_all_products(self) -> list[dict]: # list[dict] converts Products into dictionaries for saving to JSON
+        products = list[dict] = []
 
         for product in self.__products:
             products.append(product.to_dict())
 
         return products
+
+    def get_products(self) -> list[Product]: #list[Product] returns the actual Product object for polymorphism testing
+        return self.__products
