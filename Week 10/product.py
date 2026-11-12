@@ -34,7 +34,7 @@ class Product(ABC):
     def display_supplier_information(self) -> None:
         self.__supplier.display_information()
 
-    def to_dict(self) -> str:
+    def to_dict(self) -> dict:
         return {
             "id": self.__product_id,
             "name": self.__name,
