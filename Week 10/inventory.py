@@ -32,7 +32,7 @@ class Inventory:
             print("--------------------------")
 
     def get_all_products(self) -> list[dict]: # list[dict] converts Products into dictionaries for saving to JSON
-        products = list[dict] = []
+        products: list[dict] = []
 
         for product in self.__products:
             products.append(product.to_dict())
