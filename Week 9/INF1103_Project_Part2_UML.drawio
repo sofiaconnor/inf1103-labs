@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="8mvH8wdOyOqFrPn7mIVI">
-    <mxGraphModel dx="1384" dy="1118" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1629" dy="1252" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -104,17 +104,17 @@
         <mxCell id="FidYYXQDhiqhOhvr9LEx-27" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ComplaintStorage&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# _logger: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ __init__()&lt;br&gt;+ load_complaints(): list[dict] {abstract}&lt;br&gt;# _write_all(records: list[dict]): None {abstract}&lt;br&gt;+ generate_complaint_id(records: list[dict]): str&lt;br&gt;+ save_complaint(complaint: dict, ai_output: dict, result: dict): bool&lt;br&gt;+ update_complaint(complaint_id: str, updater: Callable): dict | None&lt;br&gt;+ filter_by_outlet_and_date(outlet_id: str, days: int): list[dict]&lt;/p&gt;" vertex="1">
           <mxGeometry height="280" width="200" x="920" y="-40" as="geometry" />
         </mxCell>
-        <mxCell id="FidYYXQDhiqhOhvr9LEx-29" edge="1" parent="1" source="FidYYXQDhiqhOhvr9LEx-28" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;endArrow=none;endFill=0;startArrow=block;startFill=0;" target="FidYYXQDhiqhOhvr9LEx-27">
+        <mxCell id="FidYYXQDhiqhOhvr9LEx-32" edge="1" parent="1" source="FidYYXQDhiqhOhvr9LEx-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;strokeColor=none;" target="FidYYXQDhiqhOhvr9LEx-26">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="FidYYXQDhiqhOhvr9LEx-32" edge="1" parent="1" source="FidYYXQDhiqhOhvr9LEx-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;strokeColor=none;" target="FidYYXQDhiqhOhvr9LEx-26">
+        <mxCell id="FidYYXQDhiqhOhvr9LEx-54" edge="1" parent="1" source="FidYYXQDhiqhOhvr9LEx-28" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;endArrow=block;endFill=0;" target="FidYYXQDhiqhOhvr9LEx-27">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-28" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;ComplaintDataManager&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# _data_file: str&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;+ _data_file: str &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;{readOnly}&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ __init__(data_file: str = &quot;complaints_data.json&quot;)&lt;br&gt;+ load_complaints(): list[dict]&lt;br&gt;# _write_all(records: list[dict]): None&lt;/p&gt;" vertex="1">
           <mxGeometry height="160" width="200" x="920" y="-240" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-35" parent="1" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedHeader=1;tableRender=collapsed;fontStyle=1;labelBackgroundColor=#FFFFFF;fontColor=default;labelBorderColor=none;strokeColor=#000000;" value="Legend" vertex="1">
-          <mxGeometry height="270" width="384.4221275592672" x="200" y="440" as="geometry" />
+          <mxGeometry height="270" width="384.4221275592672" x="400" y="440" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-36" parent="FidYYXQDhiqhOhvr9LEx-35" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=#000000;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fixedHeader=1;" value="" vertex="1">
           <mxGeometry height="40" width="384.4221275592672" y="30" as="geometry" />
