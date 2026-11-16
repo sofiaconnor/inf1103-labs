@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="8mvH8wdOyOqFrPn7mIVI">
-    <mxGraphModel dx="1629" dy="1252" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2394" dy="1450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -42,28 +42,37 @@
           <mxGeometry relative="1" x="0.0002" as="geometry" />
         </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-11" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IOComplaintCollector&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ RED: str&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;{static}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ RESET: str&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;{static}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- __validator: IOComplaintValidator&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ __init__(): None&lt;br&gt;+ get_name(): str&lt;br&gt;+ get_email(): str&lt;br&gt;+ get_phone_number(): str&lt;br&gt;+ get_outlet_id(): str&lt;br&gt;+ get_incident_datetime(): str&lt;br&gt;+ get_order_reference(): str&lt;br&gt;+ get_complaint_category(): str&lt;br&gt;+ get_complaint_description(): str&lt;br&gt;+ get_follow_up_preference(): str&lt;br&gt;+ collect_complaint(): dict&lt;/p&gt;" vertex="1">
-          <mxGeometry height="280" width="200" x="-520" y="-240" as="geometry" />
+          <mxGeometry height="280" width="200" x="-920" y="-240" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-12" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;endArrow=diamondThin;endFill=1;" target="jSMPf8reBGeTEk30nxNJ-11">
           <mxGeometry relative="1" x="-0.0011" as="geometry" />
         </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-13" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IOComplaintValidator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- __email_pattern: str&lt;br&gt;- __phone_pattern: str&lt;br&gt;- __valid_categories: tuple[str, ...]&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ __init__(): None&lt;br&gt;# _validate_non_empty(value: str): bool&lt;br&gt;+ validate_name(name: str): bool&lt;br&gt;+ validate_email(email: str): bool&lt;br&gt;+ validate_phone_number(phone_number: str): bool&lt;br&gt;+ validate_outlet_id(outlet_id: str): bool&lt;br&gt;+ validate_incident_datetime(incident_datetime: str): str&lt;br&gt;+ validate_complaint_category(complaint_category: str): bool&lt;br&gt;+ normalise_complaint_category(complaint_category: str): str&lt;br&gt;+ validate_complaint_description(complaint_description: str): bool&lt;br&gt;+ validate_follow_up_preference(follow_up: str): bool&lt;br&gt;+ normalise_follow_up_preference(follow_up: str): bool&lt;/p&gt;" vertex="1">
-          <mxGeometry height="280" width="400" x="-720" y="120" as="geometry" />
+          <mxGeometry height="280" width="400" x="-1120" y="120" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-17" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;endArrow=diamondThin;endFill=1;" target="jSMPf8reBGeTEk30nxNJ-22">
           <mxGeometry relative="1" x="0.0001" as="geometry" />
         </mxCell>
+        <mxCell id="FidYYXQDhiqhOhvr9LEx-57" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-14" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;dashed=1;" target="jSMPf8reBGeTEk30nxNJ-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FidYYXQDhiqhOhvr9LEx-59" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-14" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;dashed=1;" target="jSMPf8reBGeTEk30nxNJ-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FidYYXQDhiqhOhvr9LEx-60" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-14" style="edgeStyle=none;curved=1;rounded=0;curveGeometry=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;dashed=1;" target="jSMPf8reBGeTEk30nxNJ-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-14" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IOManager&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;i style=&quot;text-align: center; color: rgb(128, 128, 128);&quot;&gt;No attributes&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ display_result(complaint: dict, ai_output: dict, result: dict): None {static}&lt;br&gt;+ display_summary(complaints: list[dict]): None {static}&lt;br&gt;+ display_ai_retry(sleep_time: int | float, attempt: int, max_retries: int): None {static}&lt;br&gt;+ display_banner(record_count: int): None {static}&lt;br&gt;+ get_menu_choice(): str&lt;br&gt;+ display_message(message: str): None&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;{static}&lt;/span&gt;&lt;/p&gt;" vertex="1">
-          <mxGeometry height="280" width="200" x="-280" y="-240" as="geometry" />
+          <mxGeometry height="280" width="200" x="-440" y="-240" as="geometry" />
         </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-16" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IOResultDisplay&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;i style=&quot;text-align: center; color: rgb(128, 128, 128);&quot;&gt;No attributes&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ display_result(complaint: dict, ai_output: dict, result: dict): None&lt;/p&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="-280" y="80" as="geometry" />
+          <mxGeometry height="120" width="200" x="-600" y="120" as="geometry" />
         </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-18" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IORetryDisplay&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;i style=&quot;text-align: center; color: rgb(128, 128, 128);&quot;&gt;No attributes&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ display_ai_retry(sleep_time: int | float, attempt: int, max_retries: int): None&lt;/p&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="-280" y="240" as="geometry" />
+          <mxGeometry height="120" width="200" x="-440" y="280" as="geometry" />
         </mxCell>
         <mxCell id="jSMPf8reBGeTEk30nxNJ-19" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;IOSummaryDisplay&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;i style=&quot;text-align: center; color: rgb(128, 128, 128);&quot;&gt;No attributes&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ display_summary(complaints: list[dict]): None&lt;/p&gt;" vertex="1">
-          <mxGeometry height="120" width="200" x="-280" y="400" as="geometry" />
+          <mxGeometry height="120" width="200" x="-280" y="120" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-18" edge="1" parent="1" source="jSMPf8reBGeTEk30nxNJ-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;defaultLabelBackgroundColor=page;labelPadding=0 4;startSize=8;endSize=8;endArrow=diamondThin;endFill=1;" target="jSMPf8reBGeTEk30nxNJ-22">
           <mxGeometry relative="1" x="-0.0015" as="geometry" />
@@ -78,16 +87,16 @@
           <mxGeometry height="200" width="200" x="480" y="-640" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
-          <mxGeometry height="30" width="60" x="-420" y="40" as="geometry" />
+          <mxGeometry height="30" width="60" x="-820" y="40" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
-          <mxGeometry height="30" width="60" x="-420" y="90" as="geometry" />
+          <mxGeometry height="30" width="60" x="-820" y="90" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
-          <mxGeometry height="30" width="60" x="-420" y="-270" as="geometry" />
+          <mxGeometry height="30" width="60" x="-820" y="-270" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
-          <mxGeometry height="30" width="60" x="-180" y="-270" as="geometry" />
+          <mxGeometry height="30" width="60" x="-340" y="-270" as="geometry" />
         </mxCell>
         <mxCell id="FidYYXQDhiqhOhvr9LEx-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
           <mxGeometry height="30" width="60" x="60" y="-270" as="geometry" />
