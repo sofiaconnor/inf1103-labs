@@ -84,8 +84,8 @@ def add_product() -> None:
             product_name,
             price,
             stock_quantity,
-            default_supplier
-            donwload_size=download_size
+            default_supplier,
+            download_size=download_size
         )
 
     else:
