@@ -51,6 +51,20 @@ print("========================================\n")
 
 inventory = load_inventory()
 
+def get_positive_float(prompt: str) -> float:
+    while True:
+        try:
+            value = float(input(prompt))
+
+            if value <= 0:
+                print("Please enter a number greater than zero.")
+                continue
+
+            return value
+
+        except ValueError:
+            print("Please enter a valid number, e.g. 12.50")
+
 def add_product() -> None:
     default_supplier = Supplier("S000", "Unknown Supplier", "unknown@example.com")
 
@@ -61,7 +75,7 @@ def add_product() -> None:
     
     product_ID = input("Product ID: ")
     product_name = input("Product Name: ")
-    price = float(input("Price: "))
+    price = get_positive_float(input("Price: "))
     stock_quantity = int(input("Stock Quantity: "))
 
     if product_type == "1":
