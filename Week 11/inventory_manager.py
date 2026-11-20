@@ -4,6 +4,7 @@ from inventory import Inventory
 from physical_product import PhysicalProduct
 from digital_product import DigitalProduct
 from supplier import Supplier
+from product_factory import ProductFactory
 
 # inventory = [
 #     {"id": "P001", "name": "Laptop", "price": 1200.00, "stock": 15}, # need to rmb to add a comma after each dict item
@@ -20,28 +21,19 @@ def load_inventory() -> Inventory:
             products = json.load(file) # json.load() loads the json structure into python
 
             for product in products:
-                if product["type"] == "physical":
-                    new_product = PhysicalProduct(
-                        product["id"],
-                        product["name"],
-                        product["price"],
-                        product["stock"],
-                        product["weight"],
-                        default_supplier
-                    )
-
-                elif product["type"] == "digital":
-                    new_product = DigitalProduct(
-                        product["id"],
-                        product["name"],
-                        product["price"],
-                        product["stock"],
-                        product["download_size"],
-                        default_supplier
-                    )
-
-                else:
+                if product["type"] not in ("physical", "digital"):
                     continue
+
+                new_product = ProductFactory.create(
+                    product["type"],
+                    product["id"],
+                    product["name"],
+                    product["price"],
+                    product["stock"],
+                    default_supplier,
+                    weight=product.get("weight", 0.0), # uses 0.0 when "weight" missing from the dictionary
+                    download_size=product.get("download_size", 0.0)
+                )
 
                 inventory.add_product(new_product)
 
@@ -74,24 +66,26 @@ def add_product() -> None:
 
     if product_type == "1":
         weight = float(input("Weight (kg): "))
-        product = PhysicalProduct(
+        product = ProductFactory.create(
+            "physical",
             product_ID,
             product_name,
             price,
             stock_quantity,
-            weight,
-            default_supplier
+            default_supplier,
+            weight=weight
         )
 
     elif product_type == "2":
         download_size = float(input("Download size (MB): "))
-        product = DigitalProduct(
+        product = ProductFactory.create(
+            "digital",
             product_ID,
             product_name,
             price,
             stock_quantity,
-            download_size,
             default_supplier
+            donwload_size=download_size
         )
 
     else:
