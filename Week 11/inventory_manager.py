@@ -1,4 +1,5 @@
 import json
+import csv
 from product import Product
 from inventory import Inventory
 from physical_product import PhysicalProduct
@@ -44,6 +45,44 @@ def load_inventory() -> Inventory:
         print("inventory.json not found. Starting with an empty inventory.\n")
 
     return inventory
+
+def load_products(path: str, inventory: Inventory, supplier: Supplier) -> None:
+    loaded = 0
+
+    try:
+        file = open(path, newline="")
+    except FileNotFoundError:
+        print(f"Products file not found: {path}")
+    else:
+        with file:
+            # read rows with csv.reader and skip the header row
+            reader = csv.reader(file) # .reader() is a function provided by the csv module that reads csv data
+            next(reader)
+
+            # for each row: try to create and add the product
+            for row in reader:
+                try:
+                    product_type, product_id, name, price, stock = row
+
+                    product = ProductFactory.create(
+                        product_type,
+                        product_id,
+                        name,
+                        float(price),
+                        int(stock),
+                        supplier
+                    )
+
+                    inventory.add_product(product)
+                    loaded += 1
+
+                # except ValueError: report the row and continue
+                except ValueError as error:
+                    print(f"Skipping invalid row {row}: {error}")
+
+        print(f"{loaded} products loaded.")
+    finally:
+        print("Load attempt finished.")
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
